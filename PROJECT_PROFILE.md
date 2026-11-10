@@ -2,14 +2,19 @@
 SPDX-FileCopyrightText: 2026 Priya Vijai Kalyan <priyavijai.kalyan2007@proton.me>
 SPDX-FileCopyrightText: 2026 Outcrop Inc
 SPDX-License-Identifier: MIT
-Repository: instructions
-File GUID: efb0aaaa-3be1-41ba-b486-70b9f2eb92e5
+Repository: ForePass
+File GUID: 825c7c02-e7fd-4319-a3ef-ec4354c8b686
 Created: 2026
 -->
 
-<!-- AGENT: Active component selections for this generic instruction repository. -->
+<!-- AGENT: Copyable manual component selections and project file references. -->
 
-# Instruction repository profile
+# Project profile template
+
+Active configuration filename: PROJECT_PROFILE.md. Template source: instructions/PROJECT_PROFILE_TEMPLATE.md.
+Copy it to PROJECT_PROFILE.md, complete the values, and check each enabled component.
+Keep project facts in PROJECT.md and local instructions in ADDITIONAL.md.
+Read [REPO.md](instructions/REPO.md#project-configuration) for the selection rules and setup procedure.
 
 ## Project files
 
@@ -29,28 +34,128 @@ Created: 2026
 
 ## Components
 
-### instruction-library
+Each component needs a unique identifier. Duplicate a component section when platforms or languages need separate scopes.
+Check Enabled for current work in this repository. Keep possible future products disabled.
+For absent literal paths in a new component, add `- Source state: planned` explicitly.
+Omitting Source state requires existing paths. Planned scope alone creates no source files or folders.
+Optional Source folders lists literal source paths to create as directories after preview and apply approval.
+JSON uses source_folders. Keep planned files outside that list and use an empty list to clear it.
+First-time interactive setup collects folder creation explicitly. Existing-profile edits preserve their configured paths.
+For Workspace components, see [the structured setup fields](instructions/REPO.md#product-specific-workspace-setup).
+For browser components, see [browser setup](instructions/REPO.md#product-specific-browser-setup).
+Replace angle-bracket values. Use `none` when a field does not apply.
+For new components, use [the default source locations](instructions/REPO.md#named-component-convention).
+Example names are replaceable. Existing component paths remain authoritative.
+Include service-owned database paths and directly copied static source in the components that own them.
+Keep Source state: planned explicit for absent paths. Do not enable future components merely to reserve directories.
 
-- [x] Enabled
-- Source paths: `*.md`, `instructions/`, `agentknowledge/`
+### backend
+
+- [ ] Enabled
+- Source paths: `<backend source and configuration paths>`
+- Targets: backend
+- Languages: `<Java, C#, or the actual source languages>`
+- Platforms: server
+- SaaS client: no
+- SDK component: none
+- Deployment: `<container, server, or configured mode>`
+
+### frontend
+
+- [ ] Enabled
+- Source paths: `<browser source paths>`
+- Targets: frontend, static-assets
+- Languages: `<actual browser source languages>`
+- Platforms: browser
+- SaaS client: `<yes or no>`
+- SDK component: `<SDK identifier or none>`
+- Deployment: `<served by application, separate static delivery, or configured mode>`
+
+### sdk
+
+- [ ] Enabled
+- Source paths: `<API specification, generator configuration, and output paths>`
+- Targets: sdks
+- Languages: `<generated output languages affected by the task>`
+- Platforms: `<consumer platforms>`
+- SaaS client: no
+- SDK component: none
+- Deployment: generated library
+
+### native-client
+
+- [ ] Enabled
+- Source paths: `<native source and target configuration paths>`
+- Targets: apps
+- Languages: `<actual source languages>`
+- Platforms: `<iOS, iPadOS, macOS, Android, ChromeOS, or actual platforms>`
+- SaaS client: `<yes or no>`
+- SDK component: `<SDK identifier or none>`
+- Deployment: native application
+
+### website
+
+- [ ] Enabled
+- Source paths: `<static website source paths>`
+- Targets: websites, static-assets
+- Languages: `<actual website source languages>`
+- Platforms: browser
+- SaaS client: no
+- SDK component: none
+- Deployment: `<configured static hosting>`
+
+### documentation
+
+- [ ] Enabled
+- Source paths: `<documentation source paths>`
 - Targets: documentation
 - Languages: none
 - Platforms: none
 - SaaS client: no
 - SDK component: none
-- Deployment: none
+- Deployment: `<configured documentation delivery or none>`
 
-### repository-tools
+### tool
 
 - [x] Enabled
-- Source paths: `configure.sh`, `scripts/`
+- Source paths: src/
 - Targets: tools
-- Languages: Python, Shell
-- Platforms: configured development environments
+- Languages: C#, TypeScript, JavaScript, Python, Go, Rust, Java, Swift, Shell
+- Platforms: macOS, Linux
 - SaaS client: no
 - SDK component: none
-- Deployment: local tooling
+- Deployment: Extension libraries such as Maven packages for Java, NuGet packages for C# are packaged using the native packaging system for that language or platform.
+- Source state: planned
+- Source folders: src/
+
+### workspace-extension
+
+- [ ] Enabled
+- Source paths: `<extension source, manifest, and build configuration paths>`
+- Targets: google-workspace
+- Languages: `<actual languages, such as JavaScript, TypeScript, HTML, CSS, or Apps Script>`
+- Platforms: `<Google Docs (Editor add-on), Gmail (Workspace add-on), or actual hosts>`
+- SaaS client: no
+- SDK component: none
+- Deployment: `<Apps Script or HTTP runtime, plus test/private/Marketplace distribution>`
+
+### browser-extension
+
+- [ ] Enabled
+- Source paths: `<extension source, manifest, and build configuration paths>`
+- Targets: browser-extensions
+- Languages: `<actual languages, such as JavaScript, TypeScript, HTML, CSS, or SCSS>`
+- Platforms: `<Chrome, Firefox, Safari with operating systems, or actual browsers>`
+- SaaS client: no
+- SDK component: none
+- Deployment: `<unpacked test extension, browser store packages, or Safari app distribution>`
 
 ## Agent roles
 
-No tool-specific roles are assigned. Follow the user task and shared workflow.
+Use [shared role definitions](instructions/AGENT_ROLES.md).
+
+| Tool | Roles | Notes |
+| --- | --- | --- |
+| claude | general, implementation, planning, architecture, review, testing, security, ux, documentation, operations, product | Acts as the primary designer and implementer. |
+| codex | general | Works as an additional reviewer. |
+

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "project": {
+    "name": "ForePass",
+    "owner": "Outcrop Inc, WA, USA. Priya & Vijai Kalyan.",
+    "year": "2026",
+    "repository_url": "https://github.com/priyavijaikalyan2007/forepass",
+    "description": "Project to wrap security, quality and reliability tools and run them against an existing repository, service or cloud.",
+    "business_context": {
+      "users": "SaaS developers.",
+      "problem": "Wraps many valuable security, reliability and quality tools, much of it open source and executes them systematically against a code base with baselining and reporting.",
+      "value": "Identify many low/medium level security, reliability and quality issues before engaging professional pen testing, compliance or auditing companies.",
+      "scope": "Fetch and execute specified tools.",
+      "success_criteria": "Identifies low/medium level, common security, reliability and quality issues for coding agent outputs.",
+      "constraints": "Only identifies issues identifiable through the tools this wrapper uses. A pass does not imply the codebase, deployment or cloud configuration being tested is totally secure against attackers. Does not perform DDoS testing, instead finding issues that would make such attacks cheap."
+    },
+    "license": {
+      "software": [
+        "GPL-3.0-or-later"
+      ],
+      "content": null,
+      "content_paths": [],
+      "custom_terms": ""
+    }
+  }
+}

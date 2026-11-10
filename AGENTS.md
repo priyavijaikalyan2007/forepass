@@ -36,10 +36,16 @@ Common requirements apply in every profile. Read the relevant task sections:
 
 Enabled target and language guides. Read only those affected by the task:
 
-- [DOCUMENTATION.md](instructions/DOCUMENTATION.md)
+- [csharp/CSHARP.md](instructions/csharp/CSHARP.md)
+- [go/GO.md](instructions/go/GO.md)
+- [java/JAVA.md](instructions/java/JAVA.md)
+- [javascript/JAVASCRIPT.md](instructions/javascript/JAVASCRIPT.md)
 - [python/PYTHON.md](instructions/python/PYTHON.md)
+- [rust/RUST.md](instructions/rust/RUST.md)
 - [shell/SHELL.md](instructions/shell/SHELL.md)
+- [swift/SWIFT.md](instructions/swift/SWIFT.md)
 - [tools/TOOLS.md](instructions/tools/TOOLS.md)
+- [typescript/TYPESCRIPT.md](instructions/typescript/TYPESCRIPT.md)
 
 For AI or ML work, also read [AIML_SECURITY.md](instructions/AIML_SECURITY.md).
 For credentials or sensitive data, read [SECRET_HANDLING.md](instructions/SECRET_HANDLING.md).
